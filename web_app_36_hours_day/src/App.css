@@ -32,7 +32,32 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+@font-face {
+  font-family: "digital7";
+  src: local("digital7"),
+    url("./fonts/digital7/digital-7.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "digital7-mono";
+  src: local("digital7"),
+    url("./fonts/digital7/digital-7 (mono).ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "digital7-italic";
+  src: local("digital7"),
+    url("./fonts/digital7/digital-7 (italic).ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "digital7-mono-italic";
+  src: local("digital7"),
+    url("./fonts/digital7/digital-7 (mono italic).ttf") format("truetype");
 }
