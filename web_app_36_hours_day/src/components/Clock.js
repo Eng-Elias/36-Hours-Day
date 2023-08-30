@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 // import PropTypes from "prop-types";
 import "../styles/clock.scss";
+import DaysOf35HoursUtils from "../utils/days_of_36_hours_utils";
 
 function Clock(props) {
   const [date, setDate] = useState("");
@@ -48,12 +49,12 @@ function Clock(props) {
           day = date.getDay(),
           month = date.getMonth();
 
-        const second = date.getSeconds(),
-          minute = date.getMinutes(),
-          hour = date.getHours(),
-          ds = second * -6,
-          dm = minute * -6,
-          dh = hour * -30;
+        // for 36-hour time
+        const lostTime = DaysOf35HoursUtils.getTimeLostIn36HoursDay();
+
+        const ds = lostTime.lostSeconds * 6,
+          dm = lostTime.lostMinutes * 6,
+          dh = lostTime.lostHours * 10;
 
         date = date.getDate() + " . " + months[month];
 
@@ -66,7 +67,7 @@ function Clock(props) {
         setDay(days[day]);
       }
 
-      setInterval(getTime, 1000);
+      setInterval(getTime, 600);
       getTime();
     })();
   }, []);
@@ -81,11 +82,11 @@ function Clock(props) {
       <div className="clock-analog">
         <div className="spear"></div>
         <div className="hour" ref={hourRef}>
-          {Array.from({ length: 12 }, (_, index) => index + 1).map((i) => (
+          {Array.from({ length: 36 }, (_, index) => index + 1).map((i) => (
             <span
               key={i}
               style={{
-                transform: `rotate(${i * 30}deg) translateX(100px)`,
+                transform: `rotate(${i * 10}deg) translateX(100px)`,
               }}
             >
               {i}
