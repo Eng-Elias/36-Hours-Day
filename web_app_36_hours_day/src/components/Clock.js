@@ -67,7 +67,7 @@ function Clock(props) {
         setDay(days[day]);
       }
 
-      setInterval(getTime, 600);
+      setInterval(getTime, 666);
       getTime();
     })();
   }, []);
