@@ -50,7 +50,7 @@ function Clock(props) {
           month = date.getMonth();
 
         // for 36-hour time
-        const lostTime = DaysOf35HoursUtils.getTimeLostIn36HoursDay();
+        const lostTime = DaysOf35HoursUtils.calculateTimeLostIn36HoursDay();
 
         const ds = lostTime.lostSeconds * 6,
           dm = lostTime.lostMinutes * 6,
