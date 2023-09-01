@@ -12,12 +12,23 @@ import "./fonts/digital7/digital-7 (italic).ttf";
 import "./fonts/digital7/digital-7 (mono italic).ttf";
 import "./fonts/digital7/digital-7 (mono).ttf";
 import Clock from "./components/Clock";
+import SettingsDrawer from "./components/SettingsDrawer";
+import { ThemeProvider, createTheme } from "@mui/material";
+
+const darkTheme = createTheme({
+  palette: {
+    mode: "dark",
+  },
+});
 
 function App() {
   return (
-    <div>
-      <Clock />
-    </div>
+    <ThemeProvider theme={darkTheme}>
+      <div>
+        <SettingsDrawer />
+        <Clock />
+      </div>
+    </ThemeProvider>
   );
 }
 
