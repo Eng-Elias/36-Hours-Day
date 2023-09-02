@@ -3,7 +3,30 @@ export default class DaysOf35HoursUtils {
   static MillisecondsInMinute36 = 60 * 666;
   static MillisecondsInHour36 = 60 * 60 * 666;
 
-  static calculateTimeLostIn36HoursDay(startHour = 6) {
+  static defaultStartHour = 6;
+  static startHourLocalStorageKey = "start_hour_in_36_hours_day";
+
+  static storeStartHourInLocalStorage(startHour) {
+    localStorage.setItem(
+      DaysOf35HoursUtils.startHourLocalStorageKey,
+      startHour
+    );
+  }
+
+  static getStartHourFromLocalStorage() {
+    return localStorage.getItem(DaysOf35HoursUtils.startHourLocalStorageKey);
+  }
+
+  static getStartHourFromLocalStorageOrDefault() {
+    return (
+      DaysOf35HoursUtils.getStartHourFromLocalStorage() ||
+      DaysOf35HoursUtils.defaultStartHour
+    );
+  }
+
+  static calculateTimeLostIn36HoursDay(
+    startHour = DaysOf35HoursUtils.defaultStartHour
+  ) {
     // startHour must be a number from 0 - 23
     const currentTime = new Date();
     const startHourDate = new Date(

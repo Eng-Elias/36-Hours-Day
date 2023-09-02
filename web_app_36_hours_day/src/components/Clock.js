@@ -12,7 +12,10 @@ function Clock(props) {
   const minuteRef = useRef();
   const hourRef = useRef();
 
+  const { startHour } = props;
+
   useEffect(() => {
+    let interval;
     (function () {
       const months = [
         "January",
@@ -50,7 +53,8 @@ function Clock(props) {
           month = date.getMonth();
 
         // for 36-hour time
-        const lostTime = DaysOf35HoursUtils.calculateTimeLostIn36HoursDay();
+        const lostTime =
+          DaysOf35HoursUtils.calculateTimeLostIn36HoursDay(startHour);
 
         const ds = lostTime.lostSeconds * 6,
           dm = lostTime.lostMinutes * 6,
@@ -67,10 +71,14 @@ function Clock(props) {
         setDay(days[day]);
       }
 
-      setInterval(getTime, 666);
+      interval = setInterval(getTime, 666);
       getTime();
     })();
-  }, []);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, [startHour]);
 
   return (
     <div className="clock-container">
