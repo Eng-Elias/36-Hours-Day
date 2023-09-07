@@ -16,6 +16,7 @@ import SettingsDrawer from "./components/SettingsDrawer";
 import { ThemeProvider, createTheme } from "@mui/material";
 import { useState } from "react";
 import DaysOf35HoursUtils from "./utils/days_of_36_hours_utils";
+import TimePassed from "./components/TimePassed";
 
 const darkTheme = createTheme({
   palette: {
@@ -28,11 +29,14 @@ function App() {
     DaysOf35HoursUtils.getStartHourFromLocalStorageOrDefault()
   );
 
+  const [passedTime, setPassedTime] = useState(null);
+
   return (
     <ThemeProvider theme={darkTheme}>
       <div>
         <SettingsDrawer {...{ startHour, setStartHour }} />
-        <Clock {...{ startHour, setStartHour }} />
+        <TimePassed passedTime={passedTime} />
+        <Clock {...{ startHour, setStartHour, setPassedTime }} />
       </div>
     </ThemeProvider>
   );

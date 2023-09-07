@@ -12,7 +12,7 @@ function Clock(props) {
   const minuteRef = useRef();
   const hourRef = useRef();
 
-  const { startHour } = props;
+  const { startHour, setPassedTime } = props;
 
   useEffect(() => {
     let interval;
@@ -55,6 +55,8 @@ function Clock(props) {
         // for 36-hour time
         const lostTime =
           DaysOf35HoursUtils.calculateTimeLostIn36HoursDay(startHour);
+
+        setPassedTime(lostTime);
 
         const ds = lostTime.lostSeconds * 6,
           dm = lostTime.lostMinutes * 6,
