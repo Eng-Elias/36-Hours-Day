@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 // import PropTypes from "prop-types";
 import "../styles/clock.scss";
 import DaysOf35HoursUtils from "../utils/days_of_36_hours_utils";
+import TextToSpeechUtils from "../utils/text_to_speech_utils";
 
 function Clock(props) {
   const [date, setDate] = useState("");
@@ -71,6 +72,15 @@ function Clock(props) {
         setDate(date);
         setTime(time);
         setDay(days[day]);
+
+        if (lostTime.lostMinutes === 0 && lostTime.lostSeconds === 0) {
+          const hourWord = lostTime.lostHours > 1 ? "hours" : "hour";
+          TextToSpeechUtils.speakText(`
+            ${lostTime.lostHours} ${hourWord} passed, you have ${
+            36 - lostTime.lostHours
+          } ${hourWord}.
+          `);
+        }
       }
 
       interval = setInterval(getTime, 666);
