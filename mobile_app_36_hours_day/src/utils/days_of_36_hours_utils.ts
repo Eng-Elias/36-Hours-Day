@@ -16,13 +16,6 @@ export default class DaysOf35HoursUtils {
     return StorageUtils.getItem(DaysOf35HoursUtils.startHourStorageKey);
   }
 
-  static getStartHourFromStorageOrDefault() {
-    return (
-      DaysOf35HoursUtils.getStartHourFromStorage() ||
-      DaysOf35HoursUtils.defaultStartHour
-    );
-  }
-
   static calculateTimeLostIn36HoursDay(
     startHour = DaysOf35HoursUtils.defaultStartHour,
   ) {
