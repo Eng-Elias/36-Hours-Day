@@ -68,6 +68,9 @@ function App(): JSX.Element {
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
         backgroundColor={backgroundStyle.backgroundColor}
       />
+      <View style={{flex: 1, justifyContent: 'center'}}>
+        <TimePassed passedTime={passedTime} />
+      </View>
       <View style={{flex: 2, justifyContent: 'space-between'}}>
         <Clock passedTime={passedTime} />
       </View>
