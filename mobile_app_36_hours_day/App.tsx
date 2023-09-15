@@ -18,6 +18,7 @@ import {Colors} from 'react-native/Libraries/NewAppScreen';
 import TimePassed, {PassedTimeType} from './src/components/TimePassed';
 import DaysOf35HoursUtils from './src/utils/days_of_36_hours_utils';
 import Clock from './src/components/Clock';
+import TextToSpeechUtils from './src/utils/text_to_speech_utils';
 
 function App(): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
@@ -52,6 +53,15 @@ function App(): JSX.Element {
       const lostTime =
         DaysOf35HoursUtils.calculateTimeLostIn36HoursDay(startHour);
       setPassedTime(lostTime);
+
+      if (lostTime.lostMinutes === 0 && lostTime.lostSeconds === 0) {
+        const hourWord = lostTime.lostHours > 1 ? 'hours' : 'hour';
+        TextToSpeechUtils.speakTextWithDucking(`
+          ${lostTime.lostHours} ${hourWord} passed, you have ${
+          36 - lostTime.lostHours
+        } ${hourWord}.
+        `);
+      }
     }
 
     interval = setInterval(getTime, 666);
