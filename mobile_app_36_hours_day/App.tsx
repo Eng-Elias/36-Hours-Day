@@ -15,10 +15,10 @@ import {
 } from 'react-native';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
-import TimePassed, {PassedTimeType} from './src/components/TimePassed';
+import {PassedTimeType} from './src/components/TimePassed';
 import DaysOf35HoursUtils from './src/utils/days_of_36_hours_utils';
-import Clock from './src/components/Clock';
 import TextToSpeechUtils from './src/utils/text_to_speech_utils';
+import SettingsDrawer from './src/components/SettingsDrawer';
 
 function App(): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
@@ -78,12 +78,7 @@ function App(): JSX.Element {
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
         backgroundColor={backgroundStyle.backgroundColor}
       />
-      <View style={{flex: 1, justifyContent: 'center'}}>
-        <TimePassed passedTime={passedTime} />
-      </View>
-      <View style={{flex: 2, justifyContent: 'space-between'}}>
-        <Clock passedTime={passedTime} />
-      </View>
+      <SettingsDrawer />
     </SafeAreaView>
   );
 }
