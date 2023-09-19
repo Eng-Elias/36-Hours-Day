@@ -23,6 +23,13 @@ const SettingsDrawer = () => {
   return (
     <Drawer.Navigator
       screenOptions={({navigation}) => ({
+        headerLeft: props => (
+          <IconButton
+            icon={'wrench-clock'}
+            iconColor="#3771e0"
+            onPress={navigation.toggleDrawer}
+          />
+        ),
         drawerStyle: {
           backgroundColor: Colors.darker,
         },
