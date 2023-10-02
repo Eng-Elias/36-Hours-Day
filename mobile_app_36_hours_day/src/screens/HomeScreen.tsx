@@ -1,17 +1,16 @@
 import {View} from 'react-native';
-import {Text} from 'react-native-paper';
 import TimePassed, {PassedTimeType} from '../components/TimePassed';
 import Clock from '../components/Clock';
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import DaysOf35HoursUtils from '../utils/days_of_36_hours_utils';
 import TextToSpeechUtils from '../utils/text_to_speech_utils';
+import store from '../redux/store';
 
 class HomeScreen extends React.Component<
-  {passedTime: PassedTimeType},
-  {startHour: number; passedTime: PassedTimeType}
+  {route: any},
+  Readonly<{passedTime: PassedTimeType}>
 > {
-  state: Readonly<{startHour: number; passedTime: PassedTimeType}> = {
-    startHour: DaysOf35HoursUtils.defaultStartHour,
+  state: Readonly<{passedTime: PassedTimeType}> = {
     passedTime: null,
   };
 
@@ -23,9 +22,11 @@ class HomeScreen extends React.Component<
 
   runClockInterval() {
     const getTime = () => {
-      const lostTime = DaysOf35HoursUtils.calculateTimeLostIn36HoursDay(
-        this.state.startHour,
-      );
+      // console.log(store.getState().settings.startHour);
+      const startHour = store.getState().settings.startHour;
+
+      const lostTime =
+        DaysOf35HoursUtils.calculateTimeLostIn36HoursDay(startHour);
       this.setState({passedTime: lostTime});
 
       if (lostTime.lostMinutes === 0 && lostTime.lostSeconds === 0) {
@@ -42,20 +43,7 @@ class HomeScreen extends React.Component<
     getTime();
   }
 
-  updateStartHourFromLocalStorage() {
-    DaysOf35HoursUtils.getStartHourFromStorage()
-      .then(startHour => {
-        if (typeof startHour === 'number') {
-          this.setState({startHour});
-        }
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  }
-
   componentDidMount(): void {
-    this.updateStartHourFromLocalStorage();
     this.runClockInterval();
   }
 
