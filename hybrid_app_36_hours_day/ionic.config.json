@@ -1,0 +1,7 @@
+{
+  "name": "hybrid_app_36_hours_day",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite"
+}
