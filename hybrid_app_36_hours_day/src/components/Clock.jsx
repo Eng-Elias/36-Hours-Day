@@ -106,7 +106,7 @@ function Clock(props) {
             <span
               key={i}
               style={{
-                transform: `rotate(${i * 10}deg) translateX(100px)`,
+                transform: `rotate(${i * 10}deg) translateX(50px)`,
               }}
             >
               {i}
@@ -118,7 +118,7 @@ function Clock(props) {
             <span
               key={i}
               style={{
-                transform: `rotate(${i * 6}deg) translateX(145px)`,
+                transform: `rotate(${i * 6}deg) translateX(95px)`,
               }}
             >
               {i}
@@ -130,7 +130,7 @@ function Clock(props) {
             <span
               key={i}
               style={{
-                transform: `rotate(${i * 6}deg) translateX(195px)`,
+                transform: `rotate(${i * 6}deg) translateX(145px)`,
               }}
             >
               {i}
@@ -142,7 +142,7 @@ function Clock(props) {
             <span
               key={i}
               style={{
-                transform: `rotate(${i * 6}deg) translateX(230px)`,
+                transform: `rotate(${i * 6}deg) translateX(180px)`,
               }}
             >
               {i}

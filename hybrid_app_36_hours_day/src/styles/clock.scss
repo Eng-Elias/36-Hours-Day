@@ -32,13 +32,13 @@ html{
   left: 50%;
   top: 50%;
   translate: -50% -50%;
-  @include circle(480px);
+  @include circle(380px);
   overflow: hidden;
   background: #111;
   box-shadow: 0 0 25px 3px #000 , 0 0 10px rgba(0,0,0,0.8) inset;
   .spear{
     position: absolute;
-    width: 220px;
+    width: 170px;
     height: 1px;
     background: red;
     left: 50%;
@@ -66,7 +66,7 @@ html{
   }
 
   .clock-analog{
-    @include circle(440px);
+    @include circle(340px);
     margin: 20px;
     background: #fff;
     z-index: 5;
@@ -107,8 +107,9 @@ html{
     }
       
     .hour{
+      color: #000;
       z-index: 150;
-      font-size: 20px;
+      font-size: 7px;
       font-weight: 400;
       span{
         &:after{   
@@ -127,14 +128,14 @@ html{
         left: 50%;
         top: 50%;
         translate: -50% -50%;
-        @include circle(250px);
+        @include circle(150px);
         box-shadow: 0 0 15px 2px rgba(0,0,0,.6) inset;
       }
     }
 
     .minute{
       color: #fff;
-      font-size: 16px;  
+      font-size: 7px;  
       span:after{ 
         background: #fff; 
         transform: translate(10px, -7px) rotate(-9deg);
@@ -146,13 +147,14 @@ html{
         left: 50%;
         top: 50%;
         translate: -50% -50%;
-        @include circle(350px);
+        @include circle(250px);
         box-shadow: 0 0 25px 2px #000 inset;
       }
     }
     
     .second{
-      font-size: 12px;
+      color: #000;
+      font-size:5px;
       span:after { translate: 5px -10px; }
     }
     
@@ -172,7 +174,7 @@ html{
         &:after{
           content: '';
           position: absolute;
-          @include circle(4px);
+          @include circle(3px);
           background-color: rgb(125,126,125);
           left: 50%;
           top: 50%;
@@ -190,8 +192,8 @@ html{
   .clock-digital {
     position: absolute;
     z-index: 200;
-    height: 444px;
-    width: 224px;
+    height: 344px;
+    width: 174px;
     background: #090909;
     left: 18px;
     top: 18px;
@@ -203,8 +205,8 @@ html{
       position: absolute;
       border:15px solid #3771e0;
       border-right: none;
-      height: 400px;
-      width: 200px;
+      height: 300px;
+      width: 150px;
       border-radius: 220px 0 0 220px;
       left: 25px;
       top: 25px;
@@ -219,7 +221,7 @@ html{
       color: #fff;
       border-radius:50px;
       font-family: digital7-mono;
-      font-size: 37px;
+      font-size: 17px;
       padding: 2px 20px;
       box-shadow:0 0 15px #000 inset;
     }
@@ -248,12 +250,4 @@ html{
       padding: 2px 20px;
     }
   }  
-}
-
-
-.time-passed {
-  position: fixed;
-  top: 5%;
-  left: 50%;
-  translate: -50% 0%;
 }

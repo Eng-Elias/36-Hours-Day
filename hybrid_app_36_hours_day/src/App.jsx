@@ -16,7 +16,6 @@ import SettingsDrawer from "./components/SettingsDrawer";
 import { ThemeProvider, createTheme } from "@mui/material";
 import { useState } from "react";
 import DaysOf35HoursUtils from "./utils/days_of_36_hours_utils";
-import TimePassed from "./components/TimePassed";
 
 const darkTheme = createTheme({
   palette: {
