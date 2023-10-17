@@ -61,7 +61,7 @@ function Clock(props) {
 
         const ds = lostTime.lostSeconds * 6,
           dm = lostTime.lostMinutes * 6,
-          dh = lostTime.lostHours * 10;
+          dh = (lostTime.lostHours + 1) * 10;
 
         date = date.getDate() + " . " + months[month];
 
