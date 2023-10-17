@@ -48,18 +48,19 @@ export default class DaysOf35HoursUtils {
     const timeDifference = realMilliseconds - startHourMilliseconds;
 
     // Calculate lost time in 36-hour day
-    const lostHours =
-      Math.floor(timeDifference / DaysOf35HoursUtils.MillisecondsInHour36) - 1;
+    const lostHours = Math.floor(
+      timeDifference / DaysOf35HoursUtils.MillisecondsInHour36
+    );
     const remainingTime1 =
       timeDifference % DaysOf35HoursUtils.MillisecondsInHour36;
-    const lostMinutes =
-      Math.floor(remainingTime1 / DaysOf35HoursUtils.MillisecondsInMinute36) -
-      1;
+    const lostMinutes = Math.floor(
+      remainingTime1 / DaysOf35HoursUtils.MillisecondsInMinute36
+    );
     const remainingTime2 =
       remainingTime1 % DaysOf35HoursUtils.MillisecondsInMinute36;
-    const lostSeconds =
-      Math.floor(remainingTime2 / DaysOf35HoursUtils.MillisecondsInSecond36) -
-      1;
+    const lostSeconds = Math.floor(
+      remainingTime2 / DaysOf35HoursUtils.MillisecondsInSecond36
+    );
 
     return {
       lostHours: lostHours,
