@@ -26,7 +26,6 @@ function DrawerContent() {
   React.useEffect(() => {
     DaysOf35HoursUtils.getStartHourFromStorage()
       .then(startHour => {
-        console.log(startHour);
         if (typeof startHour === 'number') {
           store.dispatch(changeStartHour(startHour));
           setText(startHour.toString());
