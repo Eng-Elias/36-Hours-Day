@@ -90,7 +90,7 @@ function Clock(props) {
     return () => {
       clearInterval(interval);
     };
-  }, [startHour]);
+  }, [startHour, setPassedTime]);
 
   return (
     <div className="clock-container">
