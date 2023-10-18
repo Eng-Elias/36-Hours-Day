@@ -31,7 +31,7 @@ function Clock({passedTime}: {passedTime: PassedTimeType}) {
               textAlign: 'center',
               color: theme.colors.scrim,
             }}>
-            {`${36 - passedTime.lostHours}:${60 - passedTime.lostMinutes}:${
+            {`${35 - passedTime.lostHours}:${60 - passedTime.lostMinutes}:${
               60 - passedTime.lostSeconds
             }`}
           </Text>
