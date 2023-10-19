@@ -1,3 +1,5 @@
+import store from "./storage_utils";
+
 export default class DaysOf35HoursUtils {
   static MillisecondsInSecond36 = 666;
   static MillisecondsInMinute36 = 60 * 666;
@@ -7,21 +9,17 @@ export default class DaysOf35HoursUtils {
   static startHourLocalStorageKey = "start_hour_in_36_hours_day";
 
   static storeStartHourInLocalStorage(startHour) {
-    localStorage.setItem(
-      DaysOf35HoursUtils.startHourLocalStorageKey,
-      startHour
-    );
+    store.set(DaysOf35HoursUtils.startHourLocalStorageKey, startHour);
   }
 
   static getStartHourFromLocalStorage() {
-    return localStorage.getItem(DaysOf35HoursUtils.startHourLocalStorageKey);
+    return store.get(DaysOf35HoursUtils.startHourLocalStorageKey);
   }
 
   static getStartHourFromLocalStorageOrDefault() {
-    return (
-      DaysOf35HoursUtils.getStartHourFromLocalStorage() ||
-      DaysOf35HoursUtils.defaultStartHour
-    );
+    return DaysOf35HoursUtils.getStartHourFromLocalStorage().then((data) => {
+      return data ?? DaysOf35HoursUtils.defaultStartHour;
+    });
   }
 
   static calculateTimeLostIn36HoursDay(
