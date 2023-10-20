@@ -14,7 +14,7 @@ import "./fonts/digital7/digital-7 (mono).ttf";
 import Clock from "./components/Clock";
 import SettingsDrawer from "./components/SettingsDrawer";
 import { ThemeProvider, createTheme } from "@mui/material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import DaysOf35HoursUtils from "./utils/days_of_36_hours_utils";
 
 const darkTheme = createTheme({
@@ -25,8 +25,14 @@ const darkTheme = createTheme({
 
 function App() {
   const [startHour, setStartHour] = useState(
-    DaysOf35HoursUtils.getStartHourFromLocalStorageOrDefault()
+    DaysOf35HoursUtils.defaultStartHour
   );
+
+  useEffect(() => {
+    DaysOf35HoursUtils.getStartHourFromLocalStorageOrDefault().then((data) => {
+      setStartHour(data);
+    });
+  }, []);
 
   const [passedTime, setPassedTime] = useState(null);
 
