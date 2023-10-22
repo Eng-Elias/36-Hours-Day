@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import Drawer from "@mui/material/Drawer";
 import Button from "@mui/material/Button";
 import ManageHistoryIcon from "@mui/icons-material/ManageHistory";
-import { Container, FormHelperText, FormLabel } from "@mui/material";
-import CustomNumberInput from "./CustomNumberInput";
+import { Container, FormHelperText } from "@mui/material";
 import DaysOf35HoursUtils from "../utils/days_of_36_hours_utils";
 import { IonInput } from "@ionic/react";
 
@@ -41,12 +40,16 @@ function SettingsDrawer(props) {
             min={0}
             max={23}
             value={startHour}
-            onChange={(e) => {
-              setStartHour(startHour);
+            onIonInput={(e) => {
+              setStartHour(e.target.value);
+              DaysOf35HoursUtils.storeStartHourInLocalStorage(e.target.value);
+            }}
+            onIonChange={(e) => {
+              setStartHour(e.target.value);
               DaysOf35HoursUtils.storeStartHourInLocalStorage(e.target.value);
             }}
             placeholder="6"
-            helperText="Enter hour between 0 and 23.\n 6 means 6:00AM"
+            helperText="Enter hour between 0 and 23. 6 means 6:00AM"
           ></IonInput>
           <FormHelperText>
             Enter hour between 0 and 23. <br /> 6 means 6:00AM
