@@ -1,10 +1,13 @@
 import React, { useEffect, useRef, useState } from "react";
+import { useMediaQuery } from "@mui/material";
 // import PropTypes from "prop-types";
 import "../styles/clock.scss";
 import DaysOf35HoursUtils from "../utils/days_of_36_hours_utils";
 import TextToSpeechUtils from "../utils/text_to_speech_utils";
 
 function Clock(props) {
+  const isMobile = useMediaQuery("@media (max-width: 1000px)");
+
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
   const [day, setDay] = useState("");
