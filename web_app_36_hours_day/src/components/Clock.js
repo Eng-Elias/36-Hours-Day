@@ -6,7 +6,7 @@ import DaysOf35HoursUtils from "../utils/days_of_36_hours_utils";
 import TextToSpeechUtils from "../utils/text_to_speech_utils";
 
 function Clock(props) {
-  const isMobile = useMediaQuery("@media (max-width: 1000px)");
+  const isMobile = useMediaQuery("@media (max-width: 500px)");
 
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
@@ -109,7 +109,9 @@ function Clock(props) {
             <span
               key={i}
               style={{
-                transform: `rotate(${i * 10}deg) translateX(100px)`,
+                transform: `rotate(${i * 10}deg) translateX(${
+                  isMobile ? 100 - 50 : 100
+                }px)`,
               }}
             >
               {i}
@@ -121,7 +123,9 @@ function Clock(props) {
             <span
               key={i}
               style={{
-                transform: `rotate(${i * 6}deg) translateX(145px)`,
+                transform: `rotate(${i * 6}deg) translateX(${
+                  isMobile ? 145 - 50 : 145
+                }px)`,
               }}
             >
               {i}
@@ -133,7 +137,9 @@ function Clock(props) {
             <span
               key={i}
               style={{
-                transform: `rotate(${i * 6}deg) translateX(195px)`,
+                transform: `rotate(${i * 6}deg) translateX(${
+                  isMobile ? 195 - 50 : 195
+                }px)`,
               }}
             >
               {i}
@@ -145,7 +151,9 @@ function Clock(props) {
             <span
               key={i}
               style={{
-                transform: `rotate(${i * 6}deg) translateX(230px)`,
+                transform: `rotate(${i * 6}deg) translateX(${
+                  isMobile ? 230 - 50 : 230
+                }px)`,
               }}
             >
               {i}
