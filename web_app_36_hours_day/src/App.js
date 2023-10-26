@@ -17,6 +17,7 @@ import { ThemeProvider, createTheme } from "@mui/material";
 import { useState } from "react";
 import DaysOf35HoursUtils from "./utils/days_of_36_hours_utils";
 import TimePassed from "./components/TimePassed";
+import { useMediaQuery } from "@mui/material";
 
 const darkTheme = createTheme({
   palette: {
@@ -25,6 +26,8 @@ const darkTheme = createTheme({
 });
 
 function App() {
+  const isMobile = useMediaQuery("@media (max-width: 500px)");
+
   const [startHour, setStartHour] = useState(
     DaysOf35HoursUtils.getStartHourFromLocalStorageOrDefault()
   );
@@ -35,7 +38,7 @@ function App() {
     <ThemeProvider theme={darkTheme}>
       <div>
         <SettingsDrawer {...{ startHour, setStartHour }} />
-        <TimePassed passedTime={passedTime} />
+        {!isMobile && <TimePassed passedTime={passedTime} />}
         <Clock {...{ startHour, setStartHour, setPassedTime }} />
       </div>
     </ThemeProvider>
