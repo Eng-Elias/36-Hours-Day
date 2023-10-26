@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">hybrid_app_36_hours_day</string>
-    <string name="title_activity_main">hybrid_app_36_hours_day</string>
-    <string name="package_name">io.ionic.starter</string>
-    <string name="custom_url_scheme">io.ionic.starter</string>
+    <string name="app_name">36-Hours Day</string>
+    <string name="title_activity_main">36-Hours Day</string>
+    <string name="package_name">io.ionic.36_hours_day</string>
+    <string name="custom_url_scheme">io.ionic.36_hours_day</string>
 </resources>
