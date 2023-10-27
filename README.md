@@ -1,10 +1,6 @@
 # 36-Hours-Day
 
-Time management (Web + Mobile) app which deal with every day as 36 hours instead of 24.
-
-Web version is ready and I still add more features.
-
-Mobile version is comming soon.
+Time management (Web + Desktop + Mobile) app which deals with every day as 36 hours instead of 24.
 
 ## Introduction
 
@@ -27,6 +23,20 @@ Use this app as a tool to help you manage your time more effectively. Whether yo
 ### 4. Gain a Fresh Perspective
 
 By adopting the 36-hour day concept, you can gain a fresh perspective on time management. This app encourages you to prioritize tasks, set goals, and be more productive within an extended timeframe.
+
+## New Features
+
+### 5. Passed Time Speaking Feature
+
+We're excited to introduce the "Passed Time Speaking" feature. Now, the app can audibly announce the elapsed time, providing you with a unique way to stay aware of your day's progression.
+
+## Project Link
+
+- [https://engelias.website/36-hours-day/](https://engelias.website/36-hours-day/)
+
+## Desktop and Mobile Apps
+
+You can download the "36-Hours Day" app on both desktop and mobile platforms from the [repository releases](https://github.com/Eng-Elias/36-Hours-Day/releases) section.
 
 ## Feedback and Contributions
 
