@@ -18,6 +18,8 @@ function Clock(props) {
 
   const { startHour, setPassedTime } = props;
 
+  const mobileDifference = 70;
+
   useEffect(() => {
     let interval;
     (function () {
@@ -110,7 +112,7 @@ function Clock(props) {
               key={i}
               style={{
                 transform: `rotate(${i * 10}deg) translateX(${
-                  isMobile ? 100 - 50 : 100
+                  isMobile ? 100 - mobileDifference : 100
                 }px)`,
               }}
             >
@@ -124,7 +126,7 @@ function Clock(props) {
               key={i}
               style={{
                 transform: `rotate(${i * 6}deg) translateX(${
-                  isMobile ? 145 - 50 : 145
+                  isMobile ? 145 - mobileDifference : 145
                 }px)`,
               }}
             >
@@ -138,7 +140,7 @@ function Clock(props) {
               key={i}
               style={{
                 transform: `rotate(${i * 6}deg) translateX(${
-                  isMobile ? 195 - 50 : 195
+                  isMobile ? 195 - mobileDifference : 195
                 }px)`,
               }}
             >
@@ -152,7 +154,7 @@ function Clock(props) {
               key={i}
               style={{
                 transform: `rotate(${i * 6}deg) translateX(${
-                  isMobile ? 230 - 50 : 230
+                  isMobile ? 230 - mobileDifference : 230
                 }px)`,
               }}
             >

@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css?family=BenchNine:300,400');
 
 $layout-breakpoint-small: 500px;
-$radius-difference-for-small: 50px;
+$radius-difference-for-small: 70px;
 
 *, *:after, *:before{
   box-sizing: border-box;
@@ -125,7 +125,7 @@ html{
       z-index: 150;
       font-size: 20px;
       @media (max-width: $layout-breakpoint-small) {
-        font-size: 10px;
+        font-size: 6px;
       }
       font-weight: 400;
       span{
@@ -158,7 +158,7 @@ html{
       color: #fff;
       font-size: 16px;
       @media (max-width: $layout-breakpoint-small) {
-        font-size: 10px;
+        font-size: 8px;
       }
       span:after{ 
         background: #fff; 
@@ -228,8 +228,8 @@ html{
     height: 444px;
     width: 224px;
     @media (max-width: $layout-breakpoint-small) {
-      height: 344px;
-      width: 174px;
+      height: 444px - 2 * $radius-difference-for-small;
+      width: 224px - $radius-difference-for-small;
     }
     background: #090909;
     left: 18px;
@@ -245,8 +245,8 @@ html{
       height: 400px;
       width: 200px;
       @media (max-width: $layout-breakpoint-small) {
-        height: 300px;
-        width: 150px;
+        height: 400px - 2 * $radius-difference-for-small;
+        width: 200px - $radius-difference-for-small;
       }
       border-radius: 220px 0 0 220px;
       left: 25px;
@@ -279,7 +279,7 @@ html{
       border-radius:20px;
       box-shadow:0 0 15px #000 inset;
       padding: 2px 20px;
-      font-size: 16px;
+      font-size: 13px;
     }
 
     .date {
@@ -289,9 +289,9 @@ html{
       top: 100px;
       color: #fff;
       border-radius:20px;
-      font-size: 16px;
+      font-size: 14px;
       @media (max-width: $layout-breakpoint-small) {
-        font-size: 13px;
+        font-size: 9px;
       }
       box-shadow:0 0 10px #000 inset;
       padding: 2px 20px;
